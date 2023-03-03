@@ -42,11 +42,18 @@ This will output a forwarding address for `http` and `https`. Take note of the `
 Forwarding https://a66e-2401-4900-1c5c-d73-98d6-8a8a-2aa1-2fb8.in.ngrok.io -> http://localhost:3000
 ```
 
-Next, go to your app on https://api.slack.com/apps and navigate to your app's **OAuth & Permissions** page. Under **Redirect URLs**, add your ngrok forwarding address with the `/oauth_redirect` path appended, like this:
+Next, go to your app on https://api.slack.com/apps and navigate to your app's **OAuth & Permissions** page. Under **Redirect URLs**, add your ngrok forwarding address with the `/slack/oauth_redirect` path appended, like this:
 
 ```
-https://a66e-2401-4900-1c5c-d73-98d6-8a8a-2aa1-2fb8.in.ngrok.io/oauth_redirect
+https://a66e-2401-4900-1c5c-d73-98d6-8a8a-2aa1-2fb8.in.ngrok.io/slack/oauth_redirect
 ```
+
+Make sure to change the redirectUri in the express receiver located inside index.js to the new ngrok URL as well.
+
+```
+redirectUri:
+  "https://a66e-2401-4900-1c5c-d73-98d6-8a8a-2aa1-2fb8.in.ngrok.io/slack/oauth_redirect",
+ ```
 
 Now go to **Event Subscriptions** and enable events. For the **Request URL**, pass your ngrok forwarding address with the `/slack/events` path appended, like this:
 
