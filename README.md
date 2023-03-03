@@ -45,7 +45,7 @@ Forwarding https://a66e-2401-4900-1c5c-d73-98d6-8a8a-2aa1-2fb8.in.ngrok.io -> ht
 Next, go to your app on https://api.slack.com/apps and navigate to your app's **OAuth & Permissions** page. Under **Redirect URLs**, add your ngrok forwarding address with the `/oauth_redirect` path appended, like this:
 
 ```
-https://a66e-2401-4900-1c5c-d73-98d6-8a8a-2aa1-2fb8.in.ngrok.io/finish_auth
+https://a66e-2401-4900-1c5c-d73-98d6-8a8a-2aa1-2fb8.in.ngrok.io/oauth_redirect
 ```
 
 Now go to **Event Subscriptions** and enable events. For the **Request URL**, pass your ngrok forwarding address with the `/slack/events` path appended, like this:
